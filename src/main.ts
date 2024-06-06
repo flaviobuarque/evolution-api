@@ -121,9 +121,10 @@ function bootstrap() {
 
   ServerUP.app = app;
   const server = ServerUP[httpServer.TYPE];
-  
+
+  const renderHost = '0.0.0.0';
   const renderPort = process.env.PORT || 4000;
-  server.listen(renderPort, () => logger.log(httpServer.TYPE.toUpperCase() + ' - ON: ' + httpServer.PORT));
+  server.listen(renderPort, renderHost, () => logger.log(httpServer.TYPE.toUpperCase() + ' - ON: ' + httpServer.PORT));
 
   initWA();
 
